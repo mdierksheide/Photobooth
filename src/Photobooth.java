@@ -8,6 +8,18 @@ class Photobooth
 	{
 		System.out.printf("%n");
 		
+		// Check for -help flag
+		for (int i = 0; i < args.length; i++)
+		{
+			if (args[i].equals("-help"))
+			{
+				System.out.printf("List of image effects: blur, edges, ");
+				System.out.printf("grayscale, sketch%n");
+				return;
+			}
+		}
+		
+		// Check for correct usage
 		if (args.length != 2)
 		{
 			System.out.printf("Incorrect usage. Correct usage: " +
@@ -25,8 +37,8 @@ class Photobooth
 		BufferedImage img = ReadImage(fullImgName);
 		if (img == null)
 		{
-			System.out.println("Failed to read image. Make sure it is " +
-				"in the resources folder and try again.");
+			System.out.print("Failed to read image. Make sure it is " +
+				"in the resources folder and try again.%n");
 			return;
 		}
 		
